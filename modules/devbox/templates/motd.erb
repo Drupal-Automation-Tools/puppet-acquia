@@ -1,0 +1,14 @@
+
+[0;1;40;35mWelcome to your new Johnson & Johnson [33mCANVAS[35m development box!
+
+[0;32mDevbox version: <%= scope.lookupvar('::devbox_version') %> (last provisioned on <%= scope.function_strftime(['%F %H:%M']) %>)
+
+FQDN:           <%= scope.lookupvar('::fqdn') %> (<%= scope.lookupvar('::ipaddress') %>)
+<% if scope.lookupvar('::processor0') then -%>
+Processor:      <%= scope.lookupvar('::processorcount') %>x <%= scope.lookupvar('::processor0') %>
+<% end -%>
+Kernel:         <%= scope.lookupvar('::kernelrelease') %>
+Memory:         <%= scope.lookupvar('::memorysize') %>
+
+[1;33mHello there, how are you?[0m
+

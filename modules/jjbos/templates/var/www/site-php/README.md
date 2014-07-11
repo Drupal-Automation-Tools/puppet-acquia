@@ -1,0 +1,1 @@
+This directory is here to mimic the Acquia production environment and the scripts herein are based on the same.

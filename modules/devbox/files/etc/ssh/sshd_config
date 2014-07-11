@@ -1,0 +1,28 @@
+# This file is managed by Puppet.  Any changes made here will be lost on next provisioning.
+
+Port 22
+Protocol 2
+
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+
+UsePrivilegeSeparation yes
+
+KeyRegenerationInterval 3600
+ServerKeyBits 768
+
+# Authentication:
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+#AuthorizedKeysFile	%h/.ssh/authorized_keys
+
+PrintMotd yes
+PrintLastLog no
+TCPKeepAlive yes
+
+Subsystem sftp /usr/lib/openssh/sftp-server
