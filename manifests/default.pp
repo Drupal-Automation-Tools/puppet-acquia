@@ -1,6 +1,11 @@
 node default {
   include apt
-  include stdlib
+
+	if ($osfamily == 'Debian' and $lsbmajdistrelease == 10) {
+		apt::ppa { 'ppa:git-core/ppa': }
+	}
+
+	include stdlib
 	include git
 
   package { ['nfs-common', 'vim' ]:

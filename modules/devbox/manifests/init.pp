@@ -1,14 +1,16 @@
 class devbox(
   $shell = 'zsh', # bash or zsh
+	$motd = true, # true to modify /etc/motd
 ) {
   include apt
   include stdlib
 
-  $config = loadyaml('/vagrant/.tmp/config.yaml')
-
-  class { 'motd':
-    template => "${module_name}/motd.erb",
-  }
+#  $config = loadyaml('/vagrant/.tmp/config.yaml')
+	if $motd {
+		class { 'motd':
+			template => "${module_name}/motd.erb",
+		}
+	}
 
   package { [ 'openssh-client', 'openssh-server' ]:
     ensure => 'latest',
